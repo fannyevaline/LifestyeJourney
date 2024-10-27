@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lifestyle Journey - Embrace Your Best Self</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <style>
+        body {
+            background-color: #F4EFEA;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background-color: #4C735B;
+            font-size: 18px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f8f9fa !important;
+            margin: 0 12px;
+        }
+
+        .btn-danger {
+            background-color: #4C735B;
+            border-color: #4C735B;
+        }
+
+        .btn-outline-danger {
+            color: #4C735B;
+            border-color: #4C735B;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        #home {
+            height: 100vh;
+            overflow: hidden;
+        }
+    
+        .carousel-item {
+            height: 100vh;
+        }
+    
+     
+        .bg-overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Warna overlay dengan transparansi */
+            backdrop-filter: blur(5px); /* Efek blur untuk memperjelas teks */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .background-img {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: opacity 1s ease-in-out;
+        }
+
+
+    
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            text-align: left;
+        }
+
+        .card {
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-social {
+            background-color: #4C735B;
+            /* Custom green shade */
+            color: white;
+            /* Text color */
+            padding: 20px 0;
+        }
+        .footer-custom {
+        background-color: #4C735B !important; /* Added !important to enforce the style */
+        }
+
+        .social-icons {
+            padding: 0;
+            /* Remove default padding */
+            margin: 0;
+            /* Remove default margin */
+            list-style: none;
+            /* Remove bullet points */
+        }
+
+        .social-icons li {
+            display: inline;
+            /* Display list items inline */
+            margin: 0 10px;
+            /* Space between icons */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="#">
+                <img src="assets/logo.png" alt="Logo" width="45" height="45" class="me-2" />
+                Lifestyle Journey
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#join">Subscribe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal"
+                            data-bs-target="#contactModal">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="background-img" style="background-image: url('assets/lifestyle.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+                <div class="background-img" style="background-image: url('assets/lifestyle2.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+                <div class="background-img" style="background-image: url('assets/lifestyle3.jpg');"></div>
+            </div>
+        </div>
+    
+        <!-- Carousel Caption with Overlay -->
+        <div class="carousel-caption d-flex flex-column align-items-start bg-overlay p-4 rounded">
+            <h1 class="display-4 fw-bold" style="color: #F4EFEA; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);">
+                Embrace a Holistic Lifestyle
+            </h1>
+            <p class="lead" style="color: #F4EFEA; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);">
+                Nourish your body, mind, and soul every day with our community.
+            </p>
+            <p style="color: #F4EFEA; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);">
+                We offer tools and resources to help you develop healthier habits and maintain a balanced life.
+                Join us to start your journey towards well-being today!
+            </p>
+            <button class="btn btn-outline-danger btn-lg mt-3" onclick="scrollToSection('about')">Get Started</button>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="bg-light">
+        <div class="container">
+            <h2 class="text-maroon text-center">About Us</h2>
+            <p class="text-center">Lifestyle Journey promotes a well-rounded lifestyle by integrating health,
+                mindfulness, and wellness practices into daily life. Our mission is to guide you towards holistic growth
+                by nurturing your body, mind, and spirit.</p>
+            <p class="text-center">We offer personalized guidance to help you adopt healthy habits, relieve stress, and
+                maintain balance. Our community is a safe space where people share experiences, inspire each other, and
+                grow together.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container">
+        <h2 class="text-maroon text-center">Our Services</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="assets/wellnes4.jpg" class="card-img-top" alt="Wellness" />
+                    <div class="card-body">
+                        <h5 class="card-title">Wellness & Nutrition</h5>
+                        <p>Healthy eating habits to nourish your body.</p>
+                        <a href="https://example.com/nutrition" target="_blank" class="btn btn-danger">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="assets/fitness.jpg" class="card-img-top" alt="Fitness" />
+                    <div class="card-body">
+                        <h5 class="card-title">Fitness Programs</h5>
+                        <p>Customized fitness plans to keep you active.</p>
+                        <a href="https://example.com/fitness" target="_blank" class="btn btn-danger">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="assets/community.jpg" class="card-img-top" alt="Mental Health" />
+                    <div class="card-body">
+                        <h5 class="card-title">Mental Health Support</h5>
+                        <p>Mindfulness practices to reduce stress.</p>
+                        <a href="https://example.com/mental-health" target="_blank" class="btn btn-danger">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="assets/yoga.jpg" class="card-img-top" alt="Yoga" />
+                    <div class="card-body">
+                        <h5 class="card-title">Yoga Sessions</h5>
+                        <p>Relax your mind and body through guided yoga.</p>
+                        <a href="https://example.com/yoga" target="_blank" class="btn btn-danger">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="assets/meditation.jpg" class="card-img-top" alt="Meditation" />
+                    <div class="card-body">
+                        <h5 class="card-title">Meditation & Relaxation</h5>
+                        <p>Experience calm with our meditation guides.</p>
+                        <a href="https://example.com/meditation" target="_blank" class="btn btn-danger">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+    
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/jRtnpzv92Nw" title="Motivational Video"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Motivational Insights</h5>
+                        <p>Explore inspiring talks and life-changing tips.</p>
+                        <a href="https://example.com/motivation" target="_blank" class="btn btn-danger">Read More</a>
+                    </div>
+                </div>
+            </div>      
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="join" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-maroon text-center mb-4">Join Our Community</h2>
+            <p class="text-center mb-4">Subscribe to receive updates and exclusive content.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-sm border-0 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Stay Connected!</h5>
+                            <form id="subscribe-form" class="d-flex flex-column" onsubmit="handleSubscribe(event)">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="name" required
+                                        placeholder="Enter your first name" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email" required
+                                        placeholder="Enter your email address" />
+                                </div>
+                                <button class="btn btn-danger mt-3" type="submit">Subscribe</button>
+                            </form>
+                            <p class="text-center text-muted mt-3">We value your privacy and won't share your information.
+                            </p>
+                            <div id="thank-you-message" class="text-center mt-3" style="display: none;">
+                                <p class="text-success">Thank you for subscribing!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contact-form" onsubmit="sendEmail(); return false;">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="email" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-white py-4 footer-custom"> 
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <p>Stay connected with us on social media for the latest updates, tips, and community support.</p>
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://x.com/i/flow/login" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        //Home
+        function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+        // Contact
+        function sendEmail() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Open the user's email application
+            window.location.href = `mailto:your-email@example.com?subject=Contact from ${name}&body=${message} - Contact: ${email}`;
+
+            // Reset the form
+            document.getElementById('contact-form').reset();
+            // Close the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+            modal.hide();
+            }
+
+            // Subscribe
+            function handleSubscribe(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // Optionally, you can add logic here to process the subscription, like sending data to a server.
+
+            // Hide the form and show the thank you message
+            document.getElementById('subscribe-form').style.display = 'none';
+            document.getElementById('thank-you-message').style.display = 'block';
+            }
+    </script>
+</body>
+
+</html>
