@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
     <style>
         body {
             background-color: #F4EFEA;
@@ -18,99 +16,218 @@
             scroll-behavior: smooth;
             padding-top: 70px;
         }
-
         .navbar {
             background-color: #4C735B;
             font-size: 18px;
         }
-
         .navbar-nav .nav-link {
             color: #f8f9fa !important;
             margin: 0 12px;
+            transition: color 0.3s;
         }
-
+        .navbar-nav .nav-link:hover {
+            color: #b5d1bc !important;
+        }
         .btn-danger {
             background-color: #4C735B;
             border-color: #4C735B;
+            color: white; 
+            width: 150px; 
+            height: 50px; 
+            text-align: center; 
+            margin: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 5px; 
+            cursor: pointer; 
         }
-
-        .btn-outline-danger {
-            color: #4C735B;
-            border-color: #4C735B;
-        }
-
-        section {
-            padding: 80px 0;
+        .btn-danger:hover {
+            background-color: #3A5541; 
+            border-color: #3A5541; 
         }
 
         #home {
             height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
-    
+        .carousel-innerHome {
+            height: 100%;
+            width: 100%;
+        }
         .carousel-item {
-            height: 100vh;
-        }
-    
-     
-        .bg-overlay {
-            background-color: rgba(0, 0, 0, 0.5); /* Warna overlay dengan transparansi */
-            backdrop-filter: blur(5px); /* Efek blur untuk memperjelas teks */
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .background-img {
             height: 100vh;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            transition: opacity 1s ease-in-out;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
         }
-
-
-    
+        .carousel-item.active {
+             opacity: 1;
+            transform: translateX(0);
+        }
+        .carousel-item-next,
+        .carousel-item-prev {
+            opacity: 0;
+            transform: translateX(100%); 
+        }
+        .background-img {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .bg-overlay {
+            background-color: rgba(0, 0, 0, 0.7); 
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            border-radius: 10px;
+        }
         .carousel-caption {
+            background-color: rgba(50, 80, 60, 0.7);
+            padding: 25px;
+            border-radius: 50%; 
             position: absolute;
             top: 50%;
-            left: 10%;
-            transform: translateY(-50%);
-            text-align: left;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%; 
+            height: 200px; 
+            text-align: start;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .carousel-caption h1 {
+            color: #F4EFEA;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        .carousel-caption .btn-outline-danger {
+            color: #2F4F4F; 
+            background-color: rgba(144, 238, 144, 0.8); 
+            border-color: #90EE90; 
+            margin-top: 20px;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
         }
 
+        .carousel-caption .btn-outline-danger:hover {
+            color: #2F4F4F; 
+            background-color: #90EE90; 
+            border-color: #90EE90; 
+        }
+
+        .text-maroon {
+            color: #800000;
+        }
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
         .card {
             transition: transform 0.2s ease;
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+            overflow: hidden; 
+            min-height: 450px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-
-        .card:hover {
-            transform: scale(1.05);
+        .card-body {
+            flex-grow: 1;
+            padding-top: 10px; 
+        }
+        .card-title {
+            font-size: 1.5rem; 
+            font-weight: 600; 
+            margin-top: 10px; 
+        }
+        .card-body p {
+            font-size: 1rem; 
+            color: #555; 
+            margin-top: 5px; 
+        }
+        .carousel-inner {
+            height: 250px; 
+            overflow: hidden; 
+        }
+        .carousel-inner img {
+            height: auto; 
+            max-height: 250px; 
+            width: 100%; 
+            object-fit: contain; 
+        }
+        .btn-danger {
+            color: #FFF; 
+            background-color: #4C735B; 
+            border-color: #4C735B; 
+        }
+        .btn-danger:active {
+            background-color: #dc3545; 
+            border-color: #bd2130; 
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.2) inset; 
         }
 
         .footer-social {
-            background-color: #4C735B;
-            /* Custom green shade */
-            color: white;
-            /* Text color */
-            padding: 20px 0;
+            background-color: #4C735B; 
+            color: white; 
+            padding: 20px 0; 
         }
+
         .footer-custom {
-        background-color: #4C735B !important; /* Added !important to enforce the style */
+            background-color: #4C735B !important; 
         }
 
         .social-icons {
-            padding: 0;
-            /* Remove default padding */
-            margin: 0;
-            /* Remove default margin */
-            list-style: none;
-            /* Remove bullet points */
+            padding: 0; 
+            margin: 0; 
+            list-style: none; 
+            display: flex; 
+            justify-content: center; 
+        }
+        .social-icons li {
+            margin: 0 15px; 
+        }
+        .social-icons a {
+            color: white; 
+            font-size: 24px; 
+            transition: transform 0.3s; 
+        }
+        .social-icons a:hover {
+            transform: scale(1.2); 
         }
 
-        .social-icons li {
-            display: inline;
-            /* Display list items inline */
-            margin: 0 10px;
-            /* Space between icons */
+        .about-container {
+            min-height: 700px; 
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 100px;
+        }
+
+        .services-container {
+            min-height: 700px; 
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        .subscribe-container {
+            min-height: 700px; 
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -141,9 +258,9 @@
 
     <!-- Home Section -->
     <section id="home" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+        <div class="carousel-innerHome">
             <div class="carousel-item active">
-                <div class="background-img" style="background-image: url('assets/lifestyle.jpg');"></div>
+                <div class="background-img" style="background-image: url('assets/lifestyle1.jpg');"></div>
             </div>
             <div class="carousel-item">
                 <div class="background-img" style="background-image: url('assets/lifestyle2.jpg');"></div>
@@ -151,8 +268,14 @@
             <div class="carousel-item">
                 <div class="background-img" style="background-image: url('assets/lifestyle3.jpg');"></div>
             </div>
+            <div class="carousel-item">
+                <div class="background-img" style="background-image: url('assets/lifestyle4.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+                <div class="background-img" style="background-image: url('assets/lifestyle5.jpg');"></div>
+            </div>
         </div>
-    
+
         <!-- Carousel Caption with Overlay -->
         <div class="carousel-caption d-flex flex-column align-items-start bg-overlay p-4 rounded">
             <h1 class="display-4 fw-bold" style="color: #F4EFEA; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);">
@@ -165,101 +288,289 @@
                 We offer tools and resources to help you develop healthier habits and maintain a balanced life.
                 Join us to start your journey towards well-being today!
             </p>
-            <button class="btn btn-outline-danger btn-lg mt-3" onclick="scrollToSection('about')">Get Started</button>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="bg-light">
-        <div class="container">
-            <h2 class="text-maroon text-center">About Us</h2>
-            <p class="text-center">Lifestyle Journey promotes a well-rounded lifestyle by integrating health,
-                mindfulness, and wellness practices into daily life. Our mission is to guide you towards holistic growth
-                by nurturing your body, mind, and spirit.</p>
-            <p class="text-center">We offer personalized guidance to help you adopt healthy habits, relieve stress, and
-                maintain balance. Our community is a safe space where people share experiences, inspire each other, and
-                grow together.</p>
+            <button class="btn btn-outline-danger btn-lg mt-3" onclick="scrollToSection('services')">Start Your Journey</button>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="bg-light">
+        <div class="about-container"> 
+            <h2 class="text-maroon text-center mb-4">About Us</h2>
+
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <img src="assets/about.jpg" alt="Lifestyle Journey" class="img-fluid rounded shadow"
+                        style="max-width: 100%; height: auto;" />
+                </div>
+                <div class="col-md-6">
+                    <p class="lead text-justify">At <strong>Lifestyle Journey</strong>, we foster a holistic lifestyle that
+                        integrates health, mindfulness, and self-expression. Our mission is to empower you to achieve
+                        balance through personalized wellness plans and fitness programs.</p>
+
+                    <p class="lead text-justify">We celebrate individuality with fashion services that help you express your
+                        unique style. Join our community to connect, share experiences, and grow together.</p>
+
+                    <p class="lead text-justify">Ready to embark on this journey? Let’s cultivate a lifestyle that brings
+                        joy and fulfillment!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Services Section -->
-    <section id="services" class="container">
-        <h2 class="text-maroon text-center">Our Services</h2>
+    <section id="services" class="container py-5" style="background-color: #f9f9f9;">
+        <div class="services-container"> 
+        <h2 class="text-maroon text-center mb-4">Our Services</h2>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="assets/wellnes4.jpg" class="card-img-top" alt="Wellness" />
+                    <div id="wellnessCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/wellnes1.jpg" class="card-img-top" alt="Wellness" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/wellnes2.jpg" class="card-img-top" alt="Wellness" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/wellnes3.jpg" class="card-img-top" alt="Wellness" />
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#wellnessCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#wellnessCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Wellness & Nutrition</h5>
                         <p>Healthy eating habits to nourish your body.</p>
-                        <a href="https://example.com/nutrition" target="_blank" class="btn btn-danger">Read More</a>
+                        <a href="https://www.nutrition.gov/" target="_blank" class="btn btn-danger">Read More</a>
                     </div>
                 </div>
             </div>
-
+    
             <div class="col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="assets/fitness.jpg" class="card-img-top" alt="Fitness" />
+                    <div id="fitnessCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/fitness1.jpg" class="card-img-top" alt="Fitness" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/fitness2.jpg" class="card-img-top" alt="Fitness" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/fitness3.jpg" class="card-img-top" alt="Fitness" />
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#fitnessCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#fitnessCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Fitness Programs</h5>
                         <p>Customized fitness plans to keep you active.</p>
-                        <a href="https://example.com/fitness" target="_blank" class="btn btn-danger">Read More</a>
+                        <a href="https://www.acefitness.org/" target="_blank" class="btn btn-danger">Read More</a>
                     </div>
                 </div>
             </div>
-
+    
             <div class="col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="assets/community.jpg" class="card-img-top" alt="Mental Health" />
+                    <div id="mentalHealthCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/community1.jpg" class="card-img-top" alt="Mental Health" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/community2.jpg" class="card-img-top" alt="Mental Health" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/community3.jpg" class="card-img-top" alt="Mental Health" />
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#mentalHealthCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#mentalHealthCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Mental Health Support</h5>
                         <p>Mindfulness practices to reduce stress.</p>
-                        <a href="https://example.com/mental-health" target="_blank" class="btn btn-danger">Read More</a>
+                        <a href="https://www.samhsa.gov/mental-health" target="_blank" class="btn btn-danger">Read More</a>
                     </div>
                 </div>
             </div>
-
+    
             <div class="col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="assets/yoga.jpg" class="card-img-top" alt="Yoga" />
+                    <div id="yogaCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/yoga1.jpg" class="card-img-top" alt="Yoga" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/yoga2.jpg" class="card-img-top" alt="Yoga" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/yoga3.jpg" class="card-img-top" alt="Yoga" />
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#yogaCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#yogaCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Yoga Sessions</h5>
                         <p>Relax your mind and body through guided yoga.</p>
-                        <a href="https://example.com/yoga" target="_blank" class="btn btn-danger">Read More</a>
+                        <a href="https://www.yogajournal.com/featured" target="_blank" class="btn btn-danger">Read More</a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div id="meditationCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/meditation1.jpg" class="card-img-top" alt="Meditation" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/meditation2.jpg" class="card-img-top" alt="Meditation" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/meditation3.jpg" class="card-img-top" alt="Meditation" />
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#meditationCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#meditationCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Meditation & Relaxation</h5>
+                        <p>Experience calm with our meditation guides.</p>
+                        <a href="https://www.headspace.com/" target="_blank" class="btn btn-danger">Read More</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-4">
                 <div class="card">
-                    <img src="assets/meditation.jpg" class="card-img-top" alt="Meditation" />
+                    <div id="fashionCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/fashion1.jpg" class="card-img-top" alt="Fashion Trend 1" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/fashion2.jpg" class="card-img-top" alt="Fashion Trend 2" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/fashion3.jpg" class="card-img-top" alt="Fashion Trend 3" />
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#fashionCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#fashionCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Meditation & Relaxation</h5>
-                        <p>Experience calm with our meditation guides.</p>
-                        <a href="https://example.com/meditation" target="_blank" class="btn btn-danger">Read More</a>
+                        <h5 class="card-title">Fashion Trends</h5>
+                        <p>Stay stylish with our latest fashion guides.</p>
+                        <a href="https://www.vogue.com/" target="_blank" class="btn btn-danger">Read More</a>
                     </div>
                 </div>
             </div>
 
-    
-            <div class="col-md-6 col-lg-4">
-                <div class="card shadow-sm">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/jRtnpzv92Nw" title="Motivational Video"
-                            allowfullscreen></iframe>
+            <div class="container">
+                <h2 class="text-center my-5" style="font-size: 2.5rem;">Motivational Insights</h2> 
+            </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/jRtnpzv92Nw" title="Unlocking Your True Potential"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Unlocking Your True Potential</h5>
+                                <p>In this inspiring talk, discover the keys to unlocking your true potential and achieving your goals. Learn how to
+                                overcome self-doubt, embrace challenges, and transform your mindset for success. Empower yourself with tools and
+                                strategies to create positive change.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Motivational Insights</h5>
-                        <p>Explore inspiring talks and life-changing tips.</p>
-                        <a href="https://example.com/motivation" target="_blank" class="btn btn-danger">Read More</a>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/PgQ3sW0BWfI" title="Three Things That Will Improve Your Life"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Three Things That Will Improve Your Life</h5>
+                                <p>Yusuf Kelechi shares three essential strategies to enhance your life: adopt a positive mindset, manage
+                                    your time wisely, and take proactive actions towards your goals. Discover how these principles can lead
+                                    to meaningful change!</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>      
-    </section>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/C31rj-bZ7dA" title="Achieving Your Dreams"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Achieving Your Dreams</h5>
+                                <p>Focus on the significance of determination and self-belief in the journey toward achieving dreams. Highlight the
+                                necessity of perseverance and commitment to overcome obstacles and stay aligned with personal goals. Emphasize that
+                                maintaining focus on aspirations is crucial for success.</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
 
     <!-- Subscribe Section -->
-    <section id="join" class="bg-light py-5">
-        <div class="container">
+    <section id="join" class="bg-light py-5" style="background-color: #e8f5e9 !important;"> 
+        <div class="services-container">
             <h2 class="text-maroon text-center mb-4">Join Our Community</h2>
             <p class="text-center mb-4">Subscribe to receive updates and exclusive content.</p>
             <div class="row justify-content-center">
@@ -280,7 +591,8 @@
                                 </div>
                                 <button class="btn btn-danger mt-3" type="submit">Subscribe</button>
                             </form>
-                            <p class="text-center text-muted mt-3">We value your privacy and won't share your information.
+                            <p class="text-center text-muted mt-3">We value your privacy and won't share your
+                                information.
                             </p>
                             <div id="thank-you-message" class="text-center mt-3" style="display: none;">
                                 <p class="text-success">Thank you for subscribing!</p>
@@ -322,16 +634,18 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-white py-4 footer-custom"> 
+    <footer class="text-center text-white py-4 footer-custom">
         <div class="footer-social">
             <h3>Follow Us</h3>
             <p>Stay connected with us on social media for the latest updates, tips, and community support.</p>
             <ul class="social-icons">
                 <li><a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="https://x.com/i/flow/login" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/?hl=en" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a></li>
                 <li><a href="https://www.youtube.com/" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
             </ul>
+            <p>Fanny Evaline.S - 535230203</p>
         </div>
     </footer>
 
@@ -340,12 +654,12 @@
     <script>
         //Home
         function scrollToSection(sectionId) {
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
             }
-
+        }
+    
         // Contact
         function sendEmail() {
             const name = document.getElementById('name').value;
@@ -360,18 +674,26 @@
             // Close the modal
             const modal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
             modal.hide();
-            }
+        }
 
-            // Subscribe
-            function handleSubscribe(event) {
+        // Subscribe
+        function handleSubscribe(event) {
             event.preventDefault(); // Prevent the default form submission
-            // Optionally, you can add logic here to process the subscription, like sending data to a server.
 
             // Hide the form and show the thank you message
             document.getElementById('subscribe-form').style.display = 'none';
             document.getElementById('thank-you-message').style.display = 'block';
-            }
+        }
+
+        $('a[href^="#"]').on('click', function (event) {
+                var target = $(this.getAttribute('href'));
+                if (target) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+            });
     </script>
 </body>
-
 </html>
